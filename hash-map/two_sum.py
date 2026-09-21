@@ -1,22 +1,18 @@
-"""
-Problem: Two Sum
-LeetCode: #1
-Difficulty: Easy
-Pattern: Hash Map
-
-Time Complexity: O(n)
-Space Complexity: O(n)
-"""
-
-from typing import List
-
+# =========================
+# LeetCode #1 - Two Sum
+# =========================
 
 class Solution:
-    def twoSum(self, nums: List[int], target: int) -> List[int]:
-        seen = {}
-        for i, num in enumerate(nums):
-            complement = target - num
-            if complement in seen:
-                return [seen[complement], i]
-            seen[num] = i
-        return []
+    def twoSum(self, nums, target):
+
+        # Go through each number in the list
+        for i in range(len(nums)):
+
+            # Compare it with every number after it
+            for j in range(i + 1, len(nums)):
+
+                # Check if the two numbers add up to target
+                if nums[i] + nums[j] == target:
+
+                    # Return the indexes of the two numbers
+                    return [i, j]
